@@ -15,7 +15,7 @@ defmodule LibraryWeb.Router do
 
   scope "/", LibraryWeb do
     pipe_through :browser
-
+    resources "/books", BookController
     get "/", PageController, :index
   end
 

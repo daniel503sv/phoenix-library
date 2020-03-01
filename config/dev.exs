@@ -2,7 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :library, Library.Repo,
-  username: "admin",
+  username: "postgres",
   password: "password",
   database: "library_dev",
   hostname: "localhost",
