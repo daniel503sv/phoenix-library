@@ -9,6 +9,5 @@ defmodule Library.Repo.Migrations.CreateBooks do
 
       timestamps()
     end
-
   end
 end

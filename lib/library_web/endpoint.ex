@@ -18,6 +18,16 @@ defmodule LibraryWeb.Endpoint do
   #
   # You should set gzip to true if you are running phx.digest
   # when deploying your static files in production.
+
+  plug(
+      Plug.Static,
+      at: "/torch",
+      from: {:torch, "priv/static"},
+      gzip: true,
+      cache_control_for_etags: "public, max-age=86400",
+      headers: [{"access-control-allow-origin", "*"}]
+    )
+
   plug Plug.Static,
     at: "/",
     from: :library,
@@ -44,4 +54,6 @@ defmodule LibraryWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
   plug LibraryWeb.Router
+
+
 end

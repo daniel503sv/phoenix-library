@@ -15,9 +15,12 @@ defmodule LibraryWeb.Router do
 
   scope "/", LibraryWeb do
     pipe_through :browser
-    resources "/books", BookController
     get "/", PageController, :index
+    resources "/authors", AuthorController
+    resources "/books", BookController
   end
+
+
 
   # Other scopes may use custom stacks.
   # scope "/api", LibraryWeb do
