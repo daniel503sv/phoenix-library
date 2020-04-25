@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :library, Library.Repo,
+config :library_2, Library2.Repo,
   username: "postgres",
   password: "password",
-  database: "library_dev",
+  database: "library_2_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -15,7 +15,7 @@ config :library, Library.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :library, LibraryWeb.Endpoint,
+config :library_2, Library2Web.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :library, LibraryWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :library, LibraryWeb.Endpoint,
+config :library_2, Library2Web.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/library_web/(live|views)/.*(ex)$",
-      ~r"lib/library_web/templates/.*(eex)$"
+      ~r"lib/library_2_web/(live|views)/.*(ex)$",
+      ~r"lib/library_2_web/templates/.*(eex)$"
     ]
   ]
 

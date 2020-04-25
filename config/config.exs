@@ -7,16 +7,16 @@
 # General application configuration
 use Mix.Config
 
-config :library,
-  ecto_repos: [Library.Repo]
+config :library_2,
+  ecto_repos: [Library2.Repo]
 
 # Configures the endpoint
-config :library, LibraryWeb.Endpoint,
+config :library_2, Library2Web.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "GSw+eDrzhiPz/rxlTZRQ5GWYL6nI/95LgCVlEitdxkJi/f+jw9Ea8jDqhUqvUgHY",
-  render_errors: [view: LibraryWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Library.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [signing_salt: "l14i00Tj"]
+  secret_key_base: "yXUf4l/uhd+KBMrExKdWwXMbUz5qXuXrhwUc1mdaFnMXTfY+py7ws+wiUUlzdHmn",
+  render_errors: [view: Library2Web.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Library2.PubSub,
+  live_view: [signing_salt: "RFtyR56n"]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -29,8 +29,3 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
-
-#torch panel configuration
-config :torch,
-  otp_app: :library,
-  template_format: "eex"

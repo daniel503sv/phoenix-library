@@ -1,4 +1,4 @@
-defmodule LibraryWeb.ConnCase do
+defmodule Library2Web.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule LibraryWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use LibraryWeb.ConnCase, async: true`, although
+  by setting `use Library2Web.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -20,19 +20,22 @@ defmodule LibraryWeb.ConnCase do
   using do
     quote do
       # Import conveniences for testing with connections
-      use Phoenix.ConnTest
-      alias LibraryWeb.Router.Helpers, as: Routes
+      import Plug.Conn
+      import Phoenix.ConnTest
+      import Library2Web.ConnCase
+
+      alias Library2Web.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint LibraryWeb.Endpoint
+      @endpoint Library2Web.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Library.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Library2.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Library.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Library2.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
